@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐式类型转换</title>
+    <script>
+        //1.字符串与任何其他数据类型相加，将其他数据类型转为字符串并拼接
+        var a1 = "null";
+        var b1 = 123;  //null,undefined,NaN,Object,true,false
+        var c1;
+        c1 = a1+b1;
+        console.log(c1);
+        console.log(typeof(c1));
+
+        //2.NaN与数值,null,undefined,true,false相加，得到NaN(Number型)
+        var a2 = NaN;
+        var b2 = 123;  //null,undefined,true,false
+        var c2 = a2+b2;
+        console.log(c2);
+        console.log(typeof(c2));
+
+        //3.数值与null,false相加得到该数值(Number型),与true相加得到该数值+1的值(Number型)
+        var a3 = 123;
+        var b3 = false;//null,
+        var c3 = a3+b3;
+        console.log(c3);
+        console.log(typeof(c3));
+        
+        //4.数值与undefined,得到NaN(Number型)
+        console.time("time1");
+        var a4 = 123;
+        var b4 = undefined;
+        var c4 = a4+b4;
+        console.log(c4);
+        console.log(typeof(c4));
+        console.timeEnd("time1");
+
+        //5.Object与任何其他数据类型相加，将其他数据类型转为字符串并拼接
+        console.group("group1");
+        var a5 = Object;
+        var b5 = 123;//"123",null,undefined,true,false,NaN
+        var c5 = a5+b5;
+        console.log(c5);
+        console.log(typeof(c5));
+        console.groupEnd("group1");
+
+        //控制台的其他属性
+        //console.warn("dont worry");
+        //console.error("hello");
+        //console.clear();
+        //console.table({a:1,b:2,c:3}); 在控制台生成一个表格
+        /*console.count();  在循环中检查特定的值使用的次数
+        for(let i=0;i<3;i++)
+        {
+            for(let j=0;j<3;j++)
+            {console.count(j);}
+        }*/
+        //console.group();console.groupEnd();  分组
+        //console.time();console.timeEnd();  计算一个代码块或函数所花费的时间
+    
+        //6.空字符串与其他数据类型相加可转为String类型，实质是调用String();
+
+        //7.不为Number的值 -0或*1或/1后转为Number型
+        var a7 = "f2"; //非纯数字字符串,undefined,Object
+        var b7 = a7 -5;
+        console.log(b7);
+        console.log(typeof(b7));
+        //纯数字字符串在减，乘，除时将其转为该数值计算
+        //null,false  在减，乘，除时将其转为数值型0计算
+        //true  在减，乘，除时将其转为数值型1计算
+
+        //8.!!可将其他数据类型转为Boolean型
+        var a8 = 44;
+        console.log(!!a8);
+        console.log(typeof(!!a8));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
