@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强制类型转换</title>
+    <script>
+        //1.其他数据类型转为String型
+        var a1 = NaN;
+        //var b1 = a1.toString()  //有局限性，不适用于null,undefined
+        var b1 = String(a1);
+        console.log(a1);
+        console.log(typeof(a1));
+        console.log(b1);
+        console.log(typeof(b1));
+
+        //2.其他数据类型转为Number型
+        var a2 = null;  //null的返回值类型是Object
+        var b2 = Number(a2);
+        console.log(a2);
+        console.log(typeof(a2));
+        console.log(b2);   //null,false转为数值型是0,true转为数值型是1,undefined,Object,非纯数字字符串转为数值型是NaN,
+        console.log(typeof(b2));  
+
+        //3.其他数据类型转为布尔型
+        var a = NaN;
+        var b=Boolean(a);
+        console.log(a);
+        console.log(typeof(a));
+        console.log(b);
+        console.log(typeof(b));
+
+        //4.parseInt()提取以数字开头的字符串的有效数字，并转为Number型
+        var a4 = "357dh589j";
+        var b4 = parseInt(a4);
+        console.log(a4);
+        console.log(typeof(a4));
+        console.log(b4);  //提取了数字357
+        console.log(typeof(b4));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
