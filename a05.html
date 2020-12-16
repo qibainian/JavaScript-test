@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关系运算</title>
+    <script>
+        console.log(null==0);          //false
+        console.log(null>-1);          //true
+        console.log(null<1);           //true
+        console.log(null==undefined);  //true
+        console.log(null==Object);     //false
+        console.log(NaN==NaN);         //false  NaN不与任何值相等
+        console.log("30"==30);         //true   非数值会转为数值再比较
+        console.log("he"==1);          //false  非数值会转为数值再比较  "he"转为数值是NaN
+        console.log("hell"=="hell");   //true   比较其对应的unicode编码，一位一位进行比较
+        console.log("3">"20");         //true   比较其对应的unicode编码，可能与常识不一样
+        console.log(3>"20");           //false  可在比较前将其中一个转为数值型
+
+        //相等与全等
+        console.log("2"==2);           //true
+        console.log("2"===2);          //false  全等数据类型也要一样
+ </script>
+</head>
+<body>
+    
+</body>
+</html>
