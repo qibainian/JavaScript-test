@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自增自减</title>
+    <script type="text/javascript">
+        /*
+         *对于一个变量自增以后，原变量的值会立即自增1（a++和++a都一样）
+         *a++和++a单独语句时没有区别，只有在做运算时才有区别
+         *a++ 先赋值 再自增
+         *++a 先自增 再赋值
+         */
+         var n1 = 10,n2 = 20;
+         var n;
+         n = n1++;
+         console.log('n='+n);    //n=10
+         console.log('n1='+n1);  //n1=11
+         n = ++n1;
+         console.log('n='+n);    //n=12    此时n1的值更新为11
+         console.log('n1='+n1);  //n1=12   此时n1的值更新为11
+         n = n2--;
+         console.log('n='+n);    //n=20
+         console.log('n2='+n2);  //n2=19
+         n = --n2;
+         console.log('n='+n);    //n=18    此时n2的值更新为19
+         console.log('n2='+n2);  //n2=18   此时n2的值更新为19
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
