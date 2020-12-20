@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch语句</title>
+    <script type="text/javascript">
+        //switch语句依次将case后面表达式的值与switch后面条件表达式的值进行全等比较
+
+        //对于成绩大于60分的输出‘合格’，低于60分的输出‘不合格’
+
+        //方法一
+        /*var score = +prompt("请输入您的分数：");
+        switch(parseInt(score/10)){
+            case 10 :
+            case 9:
+            case 8:
+            case 7:
+            case 6:
+                document.write("您的成绩合格");
+                break;
+            case 5:
+            case 4:
+            case 3:
+            case 2:
+            case 1:
+            case 0:
+                document.write("您的成绩不合格");
+                break;
+            default:
+                document.write("您输入的数字不合法");
+        }*/
+
+        //方法二
+        var score = +prompt("请输入您的分数：");
+        switch (true){
+            case score>=60:
+                document.write("您的成绩合格");
+                break;   //退出switch循环
+            default:
+                document.write("您的成绩不合格");
+                break;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
