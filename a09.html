@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while语句</title>
+    <script type="text/javascript">
+        //初始化变量 while(条件表达式){执行语句，更新变量}  先判断，若为true则执行
+        //初始化变量 do(执行语句);while{条件表达式，更新变量}  先执行再判断，至少执行一次
+
+        //假如投资的年利率为5%，试试从1000块增长到5000块需要花费多少年
+        var money = 1000,count = 0;
+        while(money<5000){
+            money *= 1.05;    //即 money = money * 1.05
+            count++;          //计算年数
+        }
+        document.write("需要花费"+i+"年");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
