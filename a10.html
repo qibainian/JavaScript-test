@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for循环</title>
+    <script type="text/javascript">
+
+        //打印1-100之间所有奇数之和
+        var i,sum=0;
+        for(i=1;i<100;i++)        //可省略三个条件但不能省略分号 for(;;)
+        {
+            if(i%2!=0)            //判断是否为奇数
+            {
+                sum += i ;
+                  
+            }
+        }
+        /*for(i=1;i<100;i+=2)
+        {
+            sum += i;
+        }*/
+        console.log("1-100所有奇数之和等于"+sum); //打印1-100所有奇数之和 
+        
+
+        //打印三位数的所有水仙花数
+        var j,a,b,c;      //j是一个三位数，a是在百位的数字，b是在十位的数字，c是在各位的的数字
+        for(j=100;j<1000;j++)
+        {
+            a = parseInt(j/100);                 //计算百位上的数字
+            b = parseInt((j - a*100)/10);        //计算十位上的数字
+            c = j % 10;      //计算个位上的数字
+            if(a*a*a+b*b*b+c*c*c==j)   //判断a的三次幂加b的三次幂加c的三次幂是否等于j，若等于则这个三位数是水仙花数
+            {
+                console.log(j);
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
