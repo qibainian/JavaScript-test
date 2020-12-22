@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for循环</title>
+    <script type="text/javascript">
+        var num = +prompt("输入一个大于1的整数：");
+        var i;
+        var flag = true;
+        for(i = 2;i<num;i++)
+        {
+            if(num%i==0)
+            {
+                flag = false;
+            }
+        }
+        if(flag)
+        {
+            alert(num+"是质数");
+        }
+        else
+        {
+            alert(num+"不是质数");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
