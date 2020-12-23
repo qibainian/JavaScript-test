@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for循环</title>
+    <script type="text/javascript">
+        //打印1-100之间所有的质数
+        var i,j,flag;
+        console.time("test");          //设置一个定时器，记录消耗的时间。计时器开始
+        for(i=2;i<=100;i++)            //打印1-100的所有数
+        {
+            flag = true;            
+            for(j=2;j<=Math.sqrt(i);j++)           //判断是否是质数
+            {
+                if(i%j==0)
+                {
+                    flag = false;
+                    break;
+                }
+            }  
+            if(flag)
+                {
+                    console.log(i);
+                }
+         }   
+        console.timeEnd("test");       //计时器结束
+
+        //正常运行时消耗13ms，第18行加了break后消耗9ms，第13行"<i"改为"<=Math.sqrt(i)"后消耗7ms     （火狐）
+        //正常运行时消耗6.7ms，第18行加了break后消耗3.1ms，第13行"<i"改为"<=Math.sqrt(i)"后消耗2.9ms     （谷歌）   
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
