@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数练习1</title>
+    <script type="text/javascript">
+        //1.定义一个函数，判断一个数字是否是偶数，若是返回true,否则返回false
+        function isOu(num) {
+            /*if(num%2==0)                    //方法1
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }*/
+            //return num%2==0?true:false;     //方法2
+            return num%2==0;                  //方法3
+        }
+        var result1 = isOu(8);
+        console.log("result1 = " + result1);
+
+        //2.定义一个函数，可以根据半径计算圆的面积并返回结果
+        function mianji(r) {
+            return Math.PI*r*r
+        }
+        var result2 = mianji(5);
+        console.log("result2 = " + result2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
