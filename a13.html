@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建函数的方法</title>
+    <script type="text/javascript">
+        //1.使用构造函数创建一个函数（不建议使用）
+        var fun1 = new Function("console.log('创建函数的第一种方法');");
+        fun1();
+        //2.使用函数声明创建一个函数
+        function fun2() {
+            console.log("创建函数的第二种方法");
+        }
+        fun2();
+        //3.使用函数表达式创建一个函数
+        var fun3 = function () {
+            console.log("创建函数的第三种方法（匿名函数中封装的代码）");
+        };
+        fun3();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
