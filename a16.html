@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域</title>
+    <script type="text/javascript">
+        /*
+         *全局作用域，在页面打开时创建，关闭时销毁
+         *全局作用域中有由浏览器创建的全局对象window，可以直接使用
+         *在全局作用域中定义的变量都作为window对象的属性保存     变量-->属性
+         *在全局作用域中定义的函数都作为window对象的方法保存     函数-->方法
+         */
+        var a = 10;
+        var b = 20;
+        //console.log(c);             //打印未定义变量会报错
+        console.log(window.c);        //提示c未定义undefined
+        function fun(){
+            console.log("我是函数");
+        }
+        fun();                        //打印"我是函数"
+        //window.fun();               //打印"我是函数"
+
+        /*
+         *函数作用域，调用函数时创建函数作用域，调用完毕时销毁
+         *每调用一次函数就会创建一个新的函数作用域
+         *在函数作用域中可以访问到全局作用域的变量，在全局作用域中不能访问函数作用域的变量
+         */
+        var i = 1;
+        function fun1(){
+            j = 2;                   //当函数作用域里的变量没有使用var关键字时，相当于window.j，函数被调用后j是全局变量
+            console.log("i="+i);     //i=1   
+            //var i = 3;             //若添加此句，则上一行输出undefined  相当于在fun1定义了i但没有赋值（函数作用域中也有var变量声明提前）
+        }
+        fun1();
+        console.log("j="+j);         //j=2  若第31行使用了关键字var即var j = 2，则此处输出报错
+
+        function fun2(){
+            fun3();                  //fun3函数被提前声明创建了，所以可以调用成功，输出"我是fun3函数"    
+            var x = 5;
+            function fun3(){
+                console.log("我是fun3函数");
+            }
+        }
+        fun2();
+
+        var e = 7;
+        function fun4(e){           //在函数中传了形参意味着在函数里定义了 var e
+            console.log(e);         //undefined
+        }
+        fun4();
+
+        var y = 8;
+        function fun5(){
+            y = 12;                //此处相当于window.y = 12 修改了全局变量的值
+        }
+        fun5();                    //若此句删除，则不会调用fun5，即y还是等于8
+        console.log(y);            //12
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
