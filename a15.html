@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+    <script type="text/javascript">
+        //1.函数中break,continue,return的区别
+        function fun1() {
+            alert("函数要执行啦");
+            for(i=0;i<5;i++)
+            {
+                if(i==2)
+                {
+                    break;             //跳出for循环
+                    //continue;        //跳出当次循环
+                    //return;          //跳出函数
+                }
+                console.log(i);
+            }
+            alert("函数执行完毕啦");
+        }
+        fun1();
+
+        //2.函数的返回值可以是任何类型，包括函数
+        function fun2() {
+            function fun3() {
+                alert("我是fun3");
+            }
+            return fun3;
+        }
+        var a = fun2();        //一个括号调用fun2
+        console.log(a);        //打印fun3函数对象
+        fun2()();              //弹出"我是fun3"       两个括号调用fun3，相当于第30行改为return fun3()
+        a();                   //弹出"我是fun3"
+
+        //3.立即执行函数（函数定义完立即被调用）
+        (function (a,b) {
+            alert("我是一个匿名函数");
+            alert(a+"+"+b+"="+(a+b));
+        })(12,34);             //可以传参数也可以不传参数
+
+        //4.对象的属性值可以是任意类型，包括函数
+        var obj = new Object();
+        obj.name = "Tom";
+        obj.age = 18;
+        obj.sayName = function () {
+            console.log(obj.name);
+        }                             //一个函数作为对象的属性保存时，称这个函数为该对象的方法，调用函数即调用对象的方法
+        obj.sayName();                //调用对象的方法
+
+        //5.枚举对象的属性
+        var obj2 = {
+            name : "Bob",
+            age : 20,
+            gender : "男"
+        };
+        for(var n in obj2){
+            console.log(n);          //枚举该对象的所有属性  name age gender
+            console.log(obj2[n]);    //n是一个变量，只能用中括号的形式读取属性值，不能用obj2.n
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
