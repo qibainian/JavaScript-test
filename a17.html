@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>声明提前</title>
+    <script type="text/javascript">
+        //变量和函数的声明提前在全局作用域和函数作用域中都有效
+
+        //变量的声明提前
+        //使用var关键字声明的变量，会在所有的代码执行之前被声明（即变量的提前声明），但不会赋值，当执行赋值语句时才会赋值
+        //1.在执行console.log之前使用var关键字声明a，正常打印出2
+        var a = 2;
+        console.log(a);    //2
+        //2.在执行console.log之前声明a，正常打印出2
+        a = 2;
+        console.log(a);    //2
+        //3.在执行console.log之后使用var关键字声明b，显示undefined
+        console.log(b);
+        var b = 2;         //undefined
+        //4.第3段代码相当于先定义，再执行console.log，最后再赋值
+        var c;
+        console.log(c);    //undefined
+        c = 2;
+        //5.在执行console.log之前声明a，报错
+        //console.log(d);
+        //d = 2;             //报错
+
+
+        //函数的声明提前
+        fun1();           //打印"我是fun1的函数"
+        //fun2();         //报错
+        function fun1(){                     //使用函数声明创建的函数会将整个函数在所有代码执行之前创建
+            console.log("我是fun1的函数");
+        }
+        var fun2 = function(){               //使用函数表达式创建的函数会提前声明fun2，但在第35行才赋值
+            console.log("我是fun2的函数");
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
