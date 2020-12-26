@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+    <script type="text/javascript">
+        /*
+         * 解析器在调用函数时每次都会向函数内部传递一个隐含的参数（this），this指向一个对象
+         * 这个对象称为函数执行的上下文对象
+         * 以函数形式调用时，this指向window
+         * 以方法形式调用时，this指向调用方法的对象
+         * 
+         * 创建构造函数时，函数里的this指向通过该构造函数创建的对象
+         */
+
+         //普通函数
+        var name = "全局name";
+        function fun(){
+            console.log(this.name);
+        }
+        var obj1 = {
+            name:"Tom",
+            age:16,
+            sayName:fun
+        }
+        var obj2 = {
+            name:"Bob",
+            age:20,
+            sayName:fun
+        }
+        fun();             //全局name    以函数形式调用时，this指向window
+        obj1.sayName();    //Tom         以方法形式调用时，this指向调用方法的对象
+        obj2.sayName();    //Bob
+        console.log(obj1.sayName==fun);  //true
+        console.log(obj1.sayName==obj2.sayName);  //true
+
+
+        //构造函数中的this
+        function Dog(name,gender){
+            this.name = name;
+            this.gender = gender;
+        }
+        var dog = new Dog("旺财","男");
+        console.log(dog);         //打印dog对象
+        console.log(dog.gender);  //男
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
