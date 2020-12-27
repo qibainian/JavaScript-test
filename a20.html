@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数模式</title>
+    <script type="text/javascript">
+        /*
+         * 创建一个构造函数用来创建Peason对象
+         * 构造函数就是一个普通的函数，只是函数名第一个字母需大写
+         * 构造函数和普通函数的区别就是调用方式不同，普通函数可直接调用，构造函数需要加new关键字
+         * 
+         * 构造函数的执行流程：
+         *     1.立刻创建一个新的对象 
+         *     2.函数中的this指向这个对象 
+         *     3.逐行执行函数中的代码 
+         *     4.将新建的对象作为返回值返回
+         * 
+         * 使用同一个构造函数创建的对象称为一类对象，将一个构造函数称为一个类
+         * 通过构造函数创建的对象称为类的实例  
+         * 可用instanceof检查对象是否为某个构造函数的实例
+         */
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.sayName = function(){
+                console.log(this.name);
+            }
+        var obj1 = new Person("Tom",18);
+        var obj2 = new Person("Bob",22);
+
+        function Dog(name,gender){
+            this.name = name;
+            this.gender = gender;
+        }
+        var dog = new Dog("旺财","男");
+
+        console.log(obj1);      //打印obj1,谷歌显示对象是Person，火狐显示对象是Object
+        console.log(obj2);      //打印obj2
+        console.log(obj2.age);  //22
+        obj1.sayName();         //Tom
+        console.log(obj1 instanceof Person);      //true
+        console.log(obj1 instanceof Object);      //true   Object是所有对象的祖宗
+        console.log(dog instanceof Person);       //false
+        console.log(obj1.sayName==obj2.sayName);  //false
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
