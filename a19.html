@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工厂模式</title>
+    <script type="text/javascript">
+        //使用工厂方法创建的对象使用的构造函数都是Object，创建的对象都是Object类型，容易导致无法区分不同类型的对象
+        function createPerson(name,age){
+            var obj = {
+                name:name,
+                age:age,
+                sayName:function(){
+                    console.log(this.name);
+                }
+            };
+            return obj;
+        }
+        var obj1 = createPerson("Tom",18);   //传实参
+        var obj2 = createPerson("Bob",22);   //传实参
+        console.log(obj1);         //打印obj1
+        console.log(obj2);         //打印obj2
+        obj1.sayName();            //Tom
+        obj2.sayName();            //Bob
+        console.log(obj1.age);     //18
+        console.log(obj2.name);    //Bob
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
