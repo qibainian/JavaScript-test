@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重写toString()方法</title>
+    <script type="text/javascript">
+        function Myclass(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+        var mc = new Myclass("Mamie",18,"女");
+        var mc2 = new Myclass("Bob",22,"男");
+        Myclass.prototype.toString = function(){
+            console.log("Myclass{name:"+this.name+",age:"+this.age+",gender:"+this.gender+"}");
+        }           //修改原型对象的toString()节省代码量
+        console.log(mc);
+        mc.toString();
+        mc2.toString();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
