@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型</title>
+    <script type="text/javascript">
+        /* 
+         * 创建函数时，解析器会向函数添加一个prototype属性
+         * 这个属性对应一个对象，这个对象称为原型对象
+         * 当函数作为普通函数调用时，这个属性没有用处
+         * 当函数以构造函数的形式调用时，它所创建的对象都有一个隐含的属性，且该属性指向构造函数的原型对象
+         * 这个隐含的属性可以通过__proto__访问
+         * 
+         * 原型对象相当于一个公共区域，所有同一个类的实例都有访问到这个原型对象
+         * 可以将对象中共有的内容，统一设置到原型对象中
+         * 
+         * 当访问一个对象的属性或方法时，会先在对象自身中寻找，如果有则直接使用
+         * 如果没有会去原型对象中找，找到则使用
+         * 如果没有则去原型的原型中找，直到找到Object对象的原型
+         * Object对象的原型没有原型（返回null），如果在Object对象的原型中还是没有找到则返回undefined
+         * 
+         * 在创建构造函数时，可以将对象共有的属性和方法统一整合到构造函数的原型对象中，可以提高效率和防止污染全局作用域
+         * 
+         */
+        function Myclass(){
+
+        }
+        var mc = new Myclass();
+        console.log(Myclass.prototype);         
+        console.log(mc.__proto__);
+        console.log(Myclass.prototype == mc.__proto__);  //true
+        var mc2 = new Myclass();
+        console.log(mc.__proto__ == mc2.__proto__);      //true        
+        mc.name = "Tom";
+        Myclass.prototype.name = "Bob";
+        console.log(mc.name);       //Tom  mc设置了name的属性值为Tom，故输出Tom
+        console.log(mc2.name);      //Bob  mc2没有设置name的属性值，故向原型对象中找name，输出Bob
+        console.log(mc2.__proto__.__proto__.age); //undefined
+        console.log("name" in mc2); //true 检查mc2中是否有name属性，对象中没有但原型中有也返回true
+        console.log(mc2.hasOwnProperty("name")); //false 检查对象mc2自身中是否有name属性
+        console.log(mc2.hasOwnProperty("hasOwnProperty")); //false
+        console.log(mc2.__proto__.hasOwnProperty("hasOwnProperty")); //false
+        console.log(mc2.__proto__.__proto__.hasOwnProperty("hasOwnProperty")); //true
+        console.log(mc2.__proto__.__proto__.__proto__);  //null
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
