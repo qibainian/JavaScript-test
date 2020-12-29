@@ -12,6 +12,8 @@
          * 以方法形式调用时，this指向调用方法的对象
          * 
          * 创建构造函数时，函数里的this指向通过该构造函数创建的对象
+         * 
+         * 使用call(),apply()调用时，this是指定的那个对象
          */
 
          //普通函数
@@ -44,6 +46,17 @@
         var dog = new Dog("旺财","男");
         console.log(dog);         //打印dog对象
         console.log(dog.gender);  //男
+
+
+        //使用call(),apply()调用时的this
+        function fun(){
+            console.log(this.name);
+        }
+        var obj3 = {
+            name:"obj3",
+        }
+        fun.call(obj3);  //obj3
+
     </script>
 </head>
 <body>
