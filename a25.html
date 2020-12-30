@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组练习</title>
+    <script type="text/javascript">
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        var per1 = new Person("Tom",16);
+        var per2 = new Person("Bob",20);
+        var per3 = new Person("Jone",12);
+        var per4 = new Person("Mamie",22);
+        var per5 = new Person("Susan",26);
+        var arr1 = [per1,per2,per3,per4,per5];
+
+
+        //创建一个函数，将arr1中满18岁的person提取出来，封装到一个新的数组并返回
+        function getAdult(arr1){
+            var arr2 = [];   //创建一个空数组
+            for(i=0;i<arr1.length;i++)  //遍历数组，筛选年龄大于等于18的person
+            {
+                if(arr1[i].age>=18)
+                {
+                    arr2.push(arr1[i]);
+                }
+            }
+            return arr2;     //把数组返回
+        }
+        var result = getAdult(arr1);
+        console.log(result);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
