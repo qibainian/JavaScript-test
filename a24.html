@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组的方法</title>
+    <script type="text/javascript">
+        //push()可以在数组的末端添加一个或多个元素，并返回新数组的长度
+        var arr1 = [1,2,3,4];
+        var result = arr1.push(5,6,7);
+        console.log(arr1);
+        console.log(result);
+
+        //pop()可以删除数组最后一个元素，并将删除的元素返回
+        var arr2 = ["a","b","c"];
+        result = arr2.pop();
+        console.log(arr2);
+        console.log(result);
+
+        //unshift()可以在数组的开头添加一个或多个元素，并返回新数组的长度
+        result = arr2.unshift("y","z");
+        console.log(arr2);
+        console.log(result);
+
+        //shift()可以删除数组第一个元素，并将删除的元素返回
+        result = arr2.shift();
+        console.log(arr2);
+        console.log(result);
+
+        //slice()可以提取指定的数组元素，不影响原数组
+        var arr3 = [11,12,13,14,15];
+        console.log(arr3.slice(1,3));  //12,13     从索引1开始，包括1，到索引3结束，不包括3
+        console.log(arr3.slice(2));    //13,14,15  从索引2开始直到数组结束
+        console.log(arr3.slice(1,-1)); //12,13,14  从索引1开始，包括1，到索引-1结束，不包括-1  索引从右往左数时第一个是-1，第二个是-2
+
+        //splice()可以删除数组中的指定元素并将删除的元素返回，会影响原数组
+        //第一个参数表示开始删除的索引，第二个参数表示删除的个数，第三个及以后的参数可以传递新元素并自动插入到第一个参数（索引值）之前
+        var arr4 = [20,21,22,23,24,25,26,27,28];
+        console.log(arr4.splice(0,3));  //20,21,22
+        console.log(arr4);              //23,24,25,26,27,28
+        console.log(arr4.splice(2,0));  //" "
+        console.log(arr4);              //23,24,25,26,27,28
+        console.log(arr4.splice(2,1,"a","b")); //25
+        console.log(arr4);              //23,24,"a","b",26,27,28
+
+        //concat()可以连接两个或多个数组，不影响原数组
+        var arr5 = [1,2,3,4,5];
+        var arr6 = [10,11,12,13,14];
+        var arr7 = [21,22,23,24,25];
+        var result = arr5.concat(arr6,arr7);
+        console.log(arr5);   //1,2,3,4,5
+        console.log(result); //1,2,3,4,5,10,11,12,13,14,21,22,23,24,25
+
+        //join()可以将数组转为字符串，可以传一个参数作为字符串之间的连接符，若不传参数则默认逗号为连接符，不影响原数组
+        var arr8 = ["a","b","c","d"];
+        var result1 = arr8.join();     
+        var result2 = arr8.join("--"); 
+        var result3 = arr8.join("");   
+        console.log(result1);   //a,b,c,d
+        console.log(result2);   //a--b--c--d
+        console.log(result3);   //abcd
+
+        //reverse()可以反转数组元素，影响原数组
+        var arr9 = [1,2,3,4,5,6,7];
+        console.log(arr9.reverse());  //7,6,5,4,3,2,1
+
+        //sort()可以将数组的元素按照Unicode编码进行排序，如果是纯数字可能排序结果会错误
+        //可以在sort()传一个回调函数作为参数，进行自定义排序
+        var arr10 = [5,4,7,22,9];
+        arr10.sort(function(a,b){
+            return a-b;   //从小到大排序
+            //return b-a; //从大到小排序
+        });
+        console.log(arr10);  
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
