@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组练习2_数组去重</title>
+    <script type="text/javascript">
+        var arr = [1,2,3,2,2,1,3,4,2,5];
+        for(i=0;i<arr.length;i++)
+        {
+            for(j=i+1;j<arr.length;j++)
+            {
+                while(arr[i]==arr[j])     //while语句属于循环语句，在判断时，如果条件为true会继续判断，直到false为止，即会进行多次判断
+                {
+                    arr.splice(j,1);
+                }
+            }
+        }
+        /*for(i=0;i<arr.length;i++)
+        {
+            for(j=i+1;j<arr.length;j++)
+            {
+                if(arr[i]==arr[j])     //if语句属于条件判断语句，如果条件是true，则继续执行，为false则跳出语句不执行，只会进行单次判断
+                {
+                    arr.splice(j,1);
+                    j--;             //防止出现连续两个相同的数字
+                }
+            }
+        }*/
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
