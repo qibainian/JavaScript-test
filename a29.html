@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arguments</title>
+    <script type="text/javascript">
+        /*
+         * 在调用函数时，浏览器会传递两个隐含的参数，一个是函数执行的上下文对象this，一个是arguments
+         * arguments是一个类数组对象，有索引值和长度
+         * argymrnts与实参有关，与形参无关
+         * arguments的callee属性可以打印正在指向的函数对象
+         */
+        function fun(){
+            console.log(arguments.length);   //3
+            console.log(arguments[0]);       //2
+            console.log(arguments[1]);       //4
+            console.log(arguments[3]);       //undefined
+            console.log(arguments.callee);   //打印本对象fun
+        }
+        fun(2,4,9);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
