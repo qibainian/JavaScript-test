@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+    <script type="text/javascript">
+        var d = new Date();
+        console.log(d);     //执行代码时的时间（动态）
+        var d2 = new Date("12/30/2020 13:02:24");
+        console.log(d2);    //12/30/2020 13:02:24 参数传递的时间
+        var year = d2.getFullYear();  //获取当前日期对象的年份
+        var month = d2.getMonth();    //获取当前日期对象的月份
+        var date = d2.getDate();      //获取当前日期对象的日期
+        var day = d2.getDay();        //获取当前日期对象的星期
+        var hours = d2.getHours();    //获取当前日期对象的小时
+        var minutes = d2.getMinutes();//获取当前日期对象的分钟
+        var seconds = d2.getSeconds();//获取当前日期对象的秒数
+        var time = d2.getTime();      //获取当前日期对象的时间戳，指1970年1月1日，0时0分0秒到当前对象时间的毫秒数        
+        console.log(year);  //2020
+        console.log(month); //11（11表示12月）
+        console.log(date);  //30
+        console.log(day);   //3 （0表示周日，3表示周三）
+        console.log(year+"年"+(month+1)+"月"+date+"日");  //2020年12月30日
+        console.log(hours+":"+minutes+":"+seconds);  //13:02:24
+        console.log(time);  //1609304544000  
+
+        //利用时间戳测试代码执行性能
+        var start = Date.now();   //获取开始时的时间戳
+        for(i = 0;i<100;i++)
+        {
+            console.log(i);
+        }
+        var end = Date.now();     //获取结束时的时间戳
+        console.log("执行了："+(end-start)+"毫秒");  //25毫秒
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
