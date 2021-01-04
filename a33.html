@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+    <script type="text/javascript">
+        //使用构造函数创建正则表达式
+        var reg1 = new RegExp("a");  //检查字符串中是否含有a
+        var str1 = "bcda";
+        console.log(reg1.test(str1));  //true  
+        var reg2 = new RegExp("Ab","i");  //第二个参数i表示不区分大小写
+        var str2 = "abc";           //忽略大小写，检查字符串中是否出现连续的ab，
+        console.log(reg2.test(str2));  //true  
+        var reg22 = new RegExp("\\.");  //在构造函数里\.表示.即任意字符  \\.表示\.
+        console.log(reg22.test("as")); //false
+
+        //使用字面量创建正则表达式
+        var reg3 = /a/i;   //忽略大小写，检查字符串中是否有a
+        var str3 = "ABB";
+        console.log(reg3.test(str3));  //true
+        var reg4 = /a|c|t/;  //检查字符串中是否含有a或c或t
+        var str4 = "cucess";
+        console.log(reg4.test(str4));  //true
+        var reg5 = /[act]/;   //检查字符串中是否含有a或c或t
+        var str5 = "brr";
+        console.log(reg5.test(str5));  //false
+        var reg6 = /[A-Z]/i;  //忽略大小写，检查字符串中是否含有A到Z
+        var str6 = "S";
+        console.log(reg6.test(str6));  //true
+        var reg7 = /[^ab]/;    //检查字符串中是否含有除了ab以外的字符  []里的^表示除了
+        var str7 = "1";     
+        console.log(reg7.test(str7));  //true
+        var reg8 = /a[bfk]e/;  //检查字符串中是否含有abe或afe或ake
+        var str8 = "akkeaa";
+        console.log(reg8.test(str8));  //false
+        var reg9 = /b{3}/;   //检查字符串中是否含有bbb
+        console.log(reg9.test("bbbb"));  //true
+        var reg10 = /ab{2}c/;
+        console.log(reg10.test("abbbc"));   //false
+        var reg11 = /ab{1,3}c/;  //检查字符串中是否含有abc或abbc或abbbc
+        console.log(reg11.test("abbbbc"));  //false
+        var reg12 = /ab{3,}/;  //检查字符串中是否含有abbb或abbbb(3个b及以上)
+        console.log(reg12.test("abbbbb"));  //true
+        console.log(reg12.test("abb"));     //false
+        var reg13 = /ab+c/;   //检查字符串中是否含有abc或abbc（一个b或以上），相当于b{1,}
+        console.log(reg13.test("abc"));     //true
+        var reg14 = /ab*c/;   //检查字符串中是否含有ac或abc（0个b或以上），相当于b{0,}
+        console.log(reg14.test("ac"));      //true
+        var reg15 = /ab?c/;  //检查字符串中是否含有ac或abc，相当于b{0,1}
+        console.log(reg15.test("abbc"));   //false
+        var  reg16 = /^a/;   //检查字符串中是否以a开头  ^表示开头
+        console.log(reg16.test("ass"));   //true
+        var reg17 = /a$/;    //检查字符串中是否以a结尾  $表示结尾
+        console.log(reg17.test("ba"));    //true
+        var reg18 = /^a$/;   //以a开头，然后结束  只能是a
+        console.log(reg18.test("a"));     //true
+        var reg19 = /^a|a$/; //以a开头或以a结尾
+        console.log(reg19.test("aba"));   //true
+        var reg20 = /./;     //.表示任意字符
+        console.log(reg20.test("adf"));   //true
+        var reg21 = /\./;    //通过\转义，检查字符串中是否含有.
+        console.log(reg21.test("a.c"));   //true
+        console.log("---------------------")
+        var reg23 = /\w/;   //检查字符串中是否含有字母，数字，_的字符
+        console.log(reg23.test("aa")); //true
+        var reg24 = /\W/;   //检查字符串中是否含有除了字母，数字，_的字符
+        console.log(reg24.test("aa")); //false
+        var reg25 = /\d/;   //检查字符串中是否含有数字
+        console.log(reg25.test("aa")); //false
+        var reg26 = /\D/;   //检查字符串中是否含有除了数字的字符
+        console.log(reg26.test("aa")); //true
+        var reg27 = /\s/;   //检查字符串中是否含有空格
+        console.log(reg27.test("a a"));//true
+        var reg28 = /\S/;   //检查字符串中是否含有除了空格的字符
+        console.log(reg28.test(" aa"));//true
+        var reg29 = /\bchild\b/;   //检查字符串中是否含有指定边界的字符
+        console.log(reg29.test("the children")); //false
+        var reg30 = /\Bchild/;   //检查字符串中是否含有除了指定边界的字符   ?
+        console.log(reg30.test("child")); //true
+
+
+
+/*
+        //正则表达式的应用
+        //split()方法，可以将字符串拆分为数组，默认全局匹配
+        var str9 = "1a2e3u4h5j6g7j8e9";
+        console.log(str9.split(/[A-z]/));  //1,2,3,4,5,6,7,8,9  将字母作为分割字符串的标准
+        //search()方法，可以检查字符串中是否有指定内容，不接受全局匹配
+        var str10 = "ahhhha abc ahhhha adc awc";
+        console.log(str10.search(/a[bdw]c/));  //7
+        //match()方法，可以检查并提取指定内容，并将内容封装到数组返回
+        str9 = "1a2e3u4h5j6G7j8e9";
+        console.log(str9.match(/[a-z]/i));  //a
+        console.log(str9.match(/[a-z]/gi)); //a,e,u,h,j,G,j,e  g指全局匹配模式，可以匹配所有内容
+        //replace()可以将字符串中指定的内容替换为新的内容，参数1为被替换的内容，参数2为新的内容
+        var str11 = "abc";
+        console.log(str11.replace(/[ab]/g,"c")); //ccc
+*/
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
