@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <script type="text/javascript">     //1、将script放在head标签里，需绑定onload事件
+        /*
+         * 文档是自上而下加载的
+         * onload事件会在整个页面加载完之后触发
+         * 为window绑定一个Onload事件可以使该事件对应的响应函数在页面加载完再执行，确保代码执行时所有DOM对象加载完毕
+         *
+         */
+        window.onload = function(){
+            var btn = document.getElementById("btn");  //获取到button对象
+            btn.innerHTML = "i am a button.";          //修改按钮的文字
+            btn.onclick = function(){      //单击响应函数（回调函数），事件被触发时才调用函数
+                alert("我是按钮");  
+            }            
+        }
+
+    </script>    
+</head>
+<body>
+    <button id="btn">我是一个按钮</button>
+    
+    <script type="text/javascript">      //2、将script放在body标签里
+     /* 
+        var btn = document.getElementById("btn");  //获取到button对象
+        btn.innerHTML = "i am a button.";          //修改按钮的文字
+        btn.onclick = function(){      //单击响应函数（回调函数），事件被触发时才调用函数
+            alert("我是按钮");  
+        }
+    */
+    </script>
+    
+</body>
+</html>
