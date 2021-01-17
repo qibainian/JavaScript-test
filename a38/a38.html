@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>dom增删改</title>
+		<link rel="stylesheet" type="text/css" href="style/css.css" />
+		<script type="text/javascript">
+		
+			window.onload = function() {
+				
+				//btn01创建一个"广州"节点,添加到#city下
+				myClick("btn01",function(){
+                    //创建一个li元素节点
+                    var li = document.createElement("li");
+                    //创建一个“广州”文本节点
+                    var gzText = document.createTextNode("广州");
+                    //将广州添加到city下
+                    li.appendChild(gzText);
+                    var city = document.getElementById("city");
+                    city.appendChild(li);
+                });
+				
+				//btn02将"广州"节点插入到#bj前面
+				myClick("btn02",function(){
+                    var li = document.createElement("li");
+                    var gzText = document.createTextNode("广州");
+                    li.appendChild(gzText);
+                    var city = document.getElementById("city");
+                    city.appendChild(li);
+                    city.insertBefore(li,bj);
+                });
+				
+				//btn03使用"广州"节点替换#bj节点
+				myClick("btn03",function(){
+                    var li = document.createElement("li");
+                    var gzText = document.createTextNode("广州");
+                    li.appendChild(gzText);
+                    var city = document.getElementById("city");
+                    city.appendChild(li);
+                    city.replaceChild(li,bj);
+                });
+				
+				//btn04删除#bj节点
+				myClick("btn04",function(){
+                    var bj = document.getElementById("bj");
+                    bj.parentNode.removeChild(bj);
+                });
+				
+				
+				//btn05读取#city内的HTML代码
+				myClick("btn05",function(){
+                    var city = document.getElementById("city");
+                    alert(city.innerHTML);
+                });
+				
+                //btn06设置#bj内的HTML代码
+                myClick("btn06",function(){
+                    var bj = document.getElementById("bj");
+                    bj.innerHTML = "汕尾";
+                });
+				
+                //btn07用设置HTML代码的方式创建一个"广州"节点,添加到#city下
+                myClick("btn07",function(){
+                    var city = document.getElementById("city");
+                    //city.lastChild.innerHTML += "<li>广州</li>";  //此法添加li时 会把city的原li删掉再加载，影响效率
+                    var li = document.createElement("li");
+                    li.innerHTML = "广州";
+                    city.appendChild(li);
+                });
+
+			function myClick(idStr, fun) {
+				var btn = document.getElementById(idStr);
+				btn.onclick = fun;
+			}
+        }
+		
+		</script>
+		
+	</head>
+	<body>
+		<div id="total">
+			<div class="inner">
+				<p>
+					你喜欢哪个城市?
+				</p>
+
+				<ul id="city">
+					<li id="bj">北京</li>
+					<li>上海</li>
+					<li>东京</li>
+					<li>首尔</li>
+				</ul>
+				
+			</div>
+		</div>
+		<div id="btnList">
+			<div><button id="btn01">创建一个"广州"节点,添加到#city下</button></div>
+			<div><button id="btn02">将"广州"节点插入到#bj前面</button></div>
+			<div><button id="btn03">使用"广州"节点替换#bj节点</button></div>
+			<div><button id="btn04">删除#bj节点</button></div>
+			<div><button id="btn05">读取#city内的HTML代码</button></div>
+			<div><button id="btn06">设置#bj内的HTML代码</button></div>
+			<div><button id="btn07">创建一个"广州"节点,添加到#city下</button></div>
+		</div>
+	</body>
+</html>
