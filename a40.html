@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作内联样式</title>
+    <style type="text/css">
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                var box1 = document.getElementById("box1");
+                //设置内联样式，内联样式优先级高于其他，!importent可以强制使样式变为最高的优先级，比内联样式高
+                box1.style.width = "300px" ;
+                box1.style.height = "300px" ;
+                box1.style.backgroundColor = "red";  //驼峰命名法 
+            }
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                var box1 = document.getElementById("box1");
+                //读取内联样式
+                alert(box1.style.width);            //300px
+                alert(box1.style.height);           //300px
+                alert(box1.style.backgroundColor);  //red
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点我啊点我啊</button>
+    <button id="btn02">哈哈哈哈哈哈</button>
+    <br/><br/>
+    <div id="box1"></div>
+</body>
+</html>
