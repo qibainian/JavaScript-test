@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取元素的样式</title>
+    <style type="text/css">
+        #box1{
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick =  function(){
+                //alert(box1.currentStyle.width);            //只有IE支持
+                //alert(getComputedStyle(box1,null).width);  //只有IE8及以下不支持
+                alert(getStyle(box1,"width"));       //第一个参数是对象，第二个参数是属性（字符串形式）
+            }
+            //写一个函数获取元素的样式
+            function getStyle(obj,name){
+
+                if(window.getComputedStyle){
+                    //正常浏览器的方式，具有getComputedStyle()方法，测试宽度时，若未设置宽度，返回显示的宽度
+                    return getComputedStyle(obj,null)[name];
+                }else{
+                    //IE8及以下的方式，没有getComputedStyle()方法，测试宽度时，若未设置宽度，返回auto
+                    return obj.currentStyle[name];
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点我一下</button>
+    <div id="box1"></div>
+</body>
+</html>
