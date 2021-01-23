@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div跟随鼠标移动</title>
+    <style type="text/css">
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: fixed;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            window.onmousemove = function(event){
+                var x = window.event.clientX;
+                var y = window.event.clientY;
+                box1.style.left = x+"px";
+                box1.style.top = y+"px";
+            }
+        }
+    </script>
+</head>
+<body style="height: 1000px;width: 2000px;">
+    <div id="box1"></div>
+</body>
+</html>
