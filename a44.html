@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>事件对象</title>
+    <style type="text/css">
+
+        #areaDiv {
+            border: 1px solid black;
+            width: 300px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+        
+        #showMsg {
+            border: 1px solid black;
+            width: 300px;
+            height: 20px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        //当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数
+        window.onload = function(event){
+            var areaDiv = document.getElementById("areaDiv");
+            var showMsg = document.getElementById("showMsg");
+            areaDiv.onmousemove = function(event){
+                var x = window.event.clientX;
+                var y = window.event.clientY;
+                showMsg.innerHTML = "x = "+x+",y = "+y;
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+	<div id="areaDiv"></div>
+	<div id="showMsg"></div>
+
+</body>
+</html>
