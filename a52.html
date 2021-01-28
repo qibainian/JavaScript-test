@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件练习1</title>
+    <style type="text/css">
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            //键盘左键按下时box1向左移动37；右键按下box1向右移动39；上键38下键40同理
+            var box1 = document.getElementById("box1");
+            //键盘事件一般绑定给document或者能够获得焦点的对象
+            document.onkeydown = function(event){
+                var speed = 10;
+                event = window.event;
+                switch(event.keyCode){
+                    case 37:
+                        box1.style.left = box1.offsetLeft-speed+"px";
+                        break;
+                    case 38:
+                        box1.style.top = box1.offsetTop-speed+"px";
+                        break;
+                    case 39:
+                        box1.style.left = box1.offsetLeft+speed+"px";
+                        break;
+                    case 40:
+                        box1.style.top = box1.offsetTop+speed+"px";
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+</html>
