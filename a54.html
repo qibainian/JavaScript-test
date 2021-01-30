@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM-location</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                location = "http://www.baidu.com";          //修改访问路径，有历史记录，可回退页面
+                //location.assign("http://www.baidu.com");  //修改访问路径，有历史记录，可回退页面
+                //location.reload();  //重新加载页面
+                //location.replace("http://www.baidu.com"); //修改访问路径，无历史记录，不可回退页面
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点我一下</button>
+    <h1>location</h1>
+</body>
+</html>
