@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图练习</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 520px;
+            height: 333px;
+            margin: 50px auto;
+            padding: 10px 0;
+            background-color: yellowgreen;
+            position: relative;
+            overflow: hidden;
+        }
+        #imgList{
+            list-style: none;
+            position: absolute;
+            left: 0px;
+        }
+        #imgList li{
+            float: left;
+            padding: 0 10px;
+        }
+        #navDiv{
+            position: absolute;
+            bottom: 15px;
+        }
+        #navDiv a{
+            float: left;
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background-color: red;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+        #navDiv a:hover{
+            background-color: black;
+        }
+    </style>
+    <script type="text/javascript" src="js/tool.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByTagName("img");
+            imgList.style.width = 520*imgArr.length + "px";
+            //使导航条居中
+            var navDiv = document.getElementById("navDiv");
+            var outer = document.getElementById("outer");
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth)/2+"px";
+            //设置第一个颜色为灰色
+            var allA = document.getElementsByTagName("a");
+            var index = 0;
+            allA[index].style.backgroundColor = "black";
+            for(var i=0;i<allA.length;i++){
+                allA[i].num = i;
+                allA[i].onclick = function(){
+                    clearInterval(timer);
+                    index = this.num;
+                    //imgList.style.left = (-520*index) + "px";   //直接切换到另一张图片
+                    setA();
+                    move(imgList,(-520*index),20,"left",function(){  //动画形式切换到另一张图片
+                        autoChange();
+                    });
+                }  
+            }
+            autoChange();
+            function setA(){
+                //当索引为5（最后一个）时
+                if(index >= imgArr.length - 1){
+                    index = 0;
+                    imgList.style.left = 0;
+                }
+                for(var i=0;i<allA.length;i++){
+                    allA[i].style.backgroundColor = "";
+                }    
+                allA[index].style.backgroundColor = "black";
+            }
+            var timer;
+            function autoChange(){
+                timer = setInterval(function(){
+                    index++;
+                    index %= imgArr.length;
+                    move(imgList,(-520*index),20,"left",function(){ 
+                        setA();
+                    })
+                },3000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li><img src="img/1.jpg" /></li>
+            <li><img src="img/2.jpg" /></li>
+            <li><img src="img/3.jpg" /></li>
+            <li><img src="img/4.jpg" /></li>
+            <li><img src="img/5.jpg" /></li>
+            <li><img src="img/1.jpg" /></li>
+        </ul>
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+</html>
