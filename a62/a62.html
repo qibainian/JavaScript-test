@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <script type="text/javascript" src="js/json2.js"></script>
+    <script type="text/javascript">
+        /*
+         * JSON 指 javascript object notation 是一个特殊格式的字符串，可以被任意语言识别，JSON字符串中的属性名必须加双引号
+         * JSON分为对象{}和数组[]
+         * JSON对象的内容可以是字符串，数值，布尔值，普通对象，数组和null
+         * JSON对象的方法不兼容IE7及以下，可以通过引入外部js文件（json2.js）进行兼容
+         */
+        //把JS对象转为JSON对象
+        var str = {"name":"bob","age":17,"gender":"女"};
+        var a = JSON.stringify(str);
+        console.log(str);  //Object { name: "bob", age: 17, gender: "女" }
+        console.log(a);    //{"name":"bob","age":17,"gender":"女"}
+        console.log("-------------------------------------------------");
+        //把JSON对象转为JS对象
+        var str2 = '{"name":"bob","age":17,"gender":"女"}';
+        var b = JSON.parse(str2);
+        console.log(str2);
+        console.log(b);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
