@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON2</title>
+    <script type="text/javascript">
+        //IE7及以下不兼容JSON方法，eval()可以执行字符串形式的代码，并将执行结果返回
+        //当字符串中有大括号{}时，eval会将其解析为代码块，此时需要加()
+        var str = "alert('hello world')";
+        var str2 = '{"name":"bob","age":17,"gender":"女"}';
+        eval(str);
+        //var obj = eval(str2);  //报错      
+        var obj = eval("("+str2+")");
+        console.log(obj);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
