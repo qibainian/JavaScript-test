@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组增删改查-面向对象封装函数改进版</title>
+</head>
+<body>
+    <script>
+
+    function SongManager (){
+        this.list = []
+    }
+
+    SongManager.prototype ={
+        init:function(list){
+            this.list = list
+        },
+
+        //增 Push()
+        addSong:function(song){
+            this.list.push(song)
+        },
+
+        //删 遍历->找到想删除的信息->删除
+        removeSong:function(songName){
+            let song = this.selectSong(songName);
+            if(song == null){
+                throw('您要删除的对象不存在')
+            }
+            let index = this.list.indexOf(song);
+            list.splice(index,1);
+        },
+
+        //改 遍历->找到想修改的信息->修改
+        updateSong:function(songName){
+            let song = this.selectSong(songName);
+            if(song == null){
+                throw('您要修改的对象不存在')
+            }
+            song.singer = '李荣浩';
+        },
+
+        //查 遍历->找到想查看的信息->打印
+        selectSong:function(songName){
+            for(let k=0;k<this.list.length;k++){
+                let song = this.list[k];
+                if(song.songName == songName){
+                    return song;
+                }
+            }
+        }
+    }
+
+    var lyxManager = new SongManager()
+    lyxManager.addSong({
+        songName:'岁月如歌',
+        singer:'陈奕迅'
+    })
+    console.log(lyxManager.list)
+
+    /* let lyyManager = new SongManager()
+    lyyManager.removeSong('小飞侠')
+    console.log(this.list) */
+
+    let lxxManager = new SongManager()
+    lxxManager.updateSong('小飞侠')
+    console.log(this.list)
+
+    </script>
+</body>
+</html>
