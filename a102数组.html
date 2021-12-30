@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组增删改查-封装函数改进版</title>
+</head>
+<body>
+    <script>
+    let list = [
+    {
+        songName:'岁月如歌',
+        singer:'陈奕迅'
+    },
+    {
+        songName:'李白',
+        singer:'荣李浩'
+    },
+    {
+        songName:'小飞侠',
+        singer:'杨千嬅'
+    },
+    ]
+    //console.log(list);
+
+    //增 Push()
+    /* function addSong(song){
+        list.push(song)
+    }
+    addSong({
+        songName:'十年',
+        singer:'陈奕迅'
+    })
+    console.log(list); */
+
+    //删 遍历->找到想删除的信息->删除
+    /* function removeSong(songName){
+        let song = selectSong(songName);
+        let index = list.indexOf(song);
+        list.splice(index,1);
+    }
+    removeSong('李白')
+    console.log(list); */
+
+    //改 遍历->找到想修改的信息->修改
+    function updateSong(songName){
+        let song = selectSong(songName);
+        song.singer = '李荣浩';
+    }
+    updateSong('李白')
+    console.log(list);
+
+    //查 遍历->找到想查看的信息->打印
+    function selectSong(songName){
+        for(let k=0;k<list.length;k++){
+            let song = list[k];
+            if(song.songName == songName){
+                return song;
+            }
+        }
+    }
+    //selectSong('岁月如歌')
+    </script>
+</body>
+</html>
