@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域链</title>
+</head>
+<body>
+    <script>
+        if(1){
+            let a = 7;
+            if(1){
+                let b = 5
+                console.log(a); //7 里层能够访问外层变量——作用域链
+            }
+            console.log(a);  //7 块级作用域内 
+            //console.log(b);  //报错 外层不能访问里层变量
+        }
+        //console.log(a);  //报错 块级作用域外,不能访问里层变量
+    </script>
+</body>
+</html>
