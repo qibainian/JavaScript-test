@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包-返回函数的函数</title>
+</head>
+<body>
+    <script>
+        //转载自掘金：前端小智
+        let val = 7
+        function createAdder() {
+            function addNumbers(a, b) {
+                let ret = a + b
+                return ret
+            }
+            return addNumbers
+        }
+        let adder = createAdder()
+        let sum = adder(val, 8)   //sum = addNumbers(val, 8)
+        console.log('example of function returning a function: ', sum)  //15
+    </script>
+</body>
+</html>
