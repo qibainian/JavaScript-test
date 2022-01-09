@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包</title>
+</head>
+<body>
+    <script>
+        //转载自掘金：前端小智
+        //闭包包含在函数创建时作用域中的所有变量，它类似于背包。
+        //函数定义附带一个小背包，它的包中存储了函数定义创建时作用域中的所有变量。
+        function createCounter() {
+            let counter = 1
+            const myFunction = function() {
+                counter = counter + 1
+                return counter
+            }
+            return myFunction
+        }
+        const increment = createCounter()
+        const c1 = increment()
+        const c2 = increment()
+        const c3 = increment()
+        console.log('example increment', c1, c2, c3)  //2,3,4
+    </script>
+</body>
+</html>
