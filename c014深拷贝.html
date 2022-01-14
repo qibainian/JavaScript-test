@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深拷贝</title>
+</head>
+<body>
+    <script>
+        const oldObj = {
+            name:'mamie',
+            age:18,
+            friend:{
+                name:'Tom'
+            }
+        }
+
+        function deepClone(obj={}){
+            //排除不是对象或者数组或者空的情况
+            if(typeof obj !== 'object' || obj == null){
+                return obj
+            }
+
+            let result;  //定义rusult接收深拷贝的对象
+
+            if(obj instanceof Array){
+                result=[]
+            }else{
+                result={}
+            }
+
+            //深拷贝的核心
+            for(let key in obj){
+                result[key] = deepClone(obj[key])
+            }
+
+            return result;  //返回深拷贝后的结果
+        }
+
+        const newObj = deepClone(oldObj);
+        newObj.name = 'Bob';
+        newObj.friend.name = 'HaHa';
+        console.log('oldObj',oldObj.name,oldObj.friend.name);  //oldObj mamie Tom
+        console.log('newObj',newObj.name,newObj.friend.name);  //newObj Bob HaHa
+    </script>
+</body>
+</html>
