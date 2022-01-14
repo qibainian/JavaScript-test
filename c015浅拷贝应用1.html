@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浅拷贝Object.assign</title>
+</head>
+<body>
+    <script>
+        // 原数据是对象
+        var obj = {
+            color: 'red',
+            person: {
+                name: '谷底飞龙',
+                age: 28,
+            },
+        }
+        // 改用 Object.assign() 实现浅拷贝
+        var copy = Object.assign({},obj);
+        // 改变原数据第一层属性 color （基本数据类型）
+        copy.color = 'yellow';
+        // 改变原数据第一层属性 person（引用数据类型）
+        copy.person.name = '天下无敌';
+        // 原数据中 color 仍为 “red“，但是 name 会被修改为 “天下无敌”
+        console.log('原对象',obj);
+        console.log('新对象',copy);
+
+        // Object.assign 把数组视为属性名为 0、1、2 的对象
+        // 源数组的 0 号属性 7 覆盖了目标数组的 0 号属性1，以此类推
+        console.log(Object.assign([1,2,3], [7,8])); // [7,8,3]
+        console.log(Object.assign([1,2], [6,7,8])); // [6,7,8]
+
+    </script>
+</body>
+</html>
