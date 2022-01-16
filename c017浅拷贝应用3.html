@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符</title>
+</head>
+<body>
+    <script>
+        // 原数据是对象
+        var obj = {
+            color: 'red',
+            person: {
+                name: '谷底飞龙',
+                age: 28,
+            },
+        }
+
+        // 改用扩展运算符 {...obj} 实现浅拷贝
+        var copy = {...obj};
+
+        // 改变原数据第一层属性 color （基本数据类型）
+        copy.color = 'yellow';
+        // 改变原数据第一层属性 person（引用数据类型）
+        copy.person.name = '天下无敌';
+        // 原数据中 color 仍为 “red”，但是 name 会被修改为 “天下无敌”
+        console.log(obj);
+
+    </script>
+</body>
+</html>
