@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深拷贝</title>
+</head>
+<body>
+    <script>
+        // 原数据是对象
+        var obj = {
+            color: 'red',
+            person: {
+                name: '谷底飞龙',
+            },
+        }
+
+        // 改用 JSON.parse(JSON.stringify()) 实现深拷贝
+        var copy = JSON.parse(JSON.stringify(obj));
+
+        // 改变原数据第一层属性 color （基本数据类型）
+        copy.color = 'yellow';
+        // 改变原数据第一层属性 person（引用数据类型）
+        copy.person.name = '天下无敌';
+        // 原数据中 color 仍为 “red“，name 仍为 “谷底飞龙”
+        console.log(obj);
+        console.log(copy);
+
+    </script>
+</body>
+</html>
