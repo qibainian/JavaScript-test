@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类的基本知识</title>
+</head>
+<body>
+    <script>
+        //类
+        class Person{
+            //构造器constructor非必须存在
+            constructor(name,age){
+                this.name = name
+                this.age = age
+            }
+            //speak方法放在Person类的原型上，供实例使用，通过Person实例调用speak时，speak中的this就是Person实例
+            speak(){
+                console.log(`我叫${this.name},我今年${this.age}岁`)
+            }
+        }
+
+        //继承
+        class Student extends Person{
+            constructor(name,age,gender){
+                //继承父类的属性必须加super
+                super(name,age)
+                this.gender = gender
+            }
+            //重写从父类继承过来的方法
+            speak(){
+                console.log(`我叫${this.name},我今年${this.age}岁,我是${this.gender}的`);
+            }
+            //study方法放在Student的原型上，供实例使用，通过Student实例调用study时，study中的this就是Student实例
+            study(){
+                console.log('我爱学习');
+            }
+        }
+
+        const p1 = new Person('Tom',18)
+        const p2 = new Student('Mamie',16,'女')
+        console.log(p1);
+        console.log(p2);
+        p1.speak()
+        p2.speak()
+        p2.study()
+    </script>
+</body>
+</html>
